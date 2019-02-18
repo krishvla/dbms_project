@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+  <h1>Login</h1>
+  {% from "includes/_formhelpers.html" import render_field %}
+  <div class="loginBox">
+  <form method="POST" action="">
+    <div class="form-group">
+        {{render_field(form.login_id, class_="form-control")}}
+    </div>
+    <div class="form-group">
+        {{render_field(form.password, class_="form-control")}}
+    </div>
+
+  </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+
+{% endblock %}

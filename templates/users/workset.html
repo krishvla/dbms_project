@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<style type="text/css">
+    body
+    {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif !important;
+        background: url('static/css/ocean.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .col-lg-13 {
+    margin: auto;
+    width: 60%;
+    border: 3px solid #ff751a;
+    padding: 10px;
+    }
+    tr:hover {background-color:#f5f5f5;}
+
+</style>
+ {% from "includes/_formhelpers.html" import render_field %}
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="../static/img/favicon.ico">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title class="nc-icon nc-app">Dashboard</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../static/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
+    <link href="../static/css/demo.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="sidebar" data-image="../static/img/sidebar-5.jpg">
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a  class="simple-text">
+                        Welcome-{{session.login_id}}<br>
+                        The Awesome is here!!
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="./userdashboard">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link active" href="#">
+                            <i class="nc-icon nc-preferences-circle-rotate"></i>
+                            <p>Work</p>
+                        </a>
+                    </li>
+                     <li>
+                        <a class="nav-link" href="./logout">
+                            <i class="nc-icon nc-button-power"></i>
+                            <p>Log Out</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+         
+    <div class="col-lg-13">
+          <div class="card mb-5">
+            <div class="card-header">
+              <i class="fa fa-table"></i> Posted Complaints</div>
+            <div class="card-body">
+              <div class="table-responsive">
+         <table  align="right" class="table table-primary">
+        {% if dep >0 %}
+        <div>
+            <tr>
+                <th>Department</th>
+            </tr>
+            <tr>
+                <td>{{dep.department}}</td>
+                <td><a href="showork/{{dep.department}}" class="btn btn-info pull-right">show works</a></td>
+        </div>
+        {% else %}
+        <a href="#"> Ur not a Working Staff! Please consider Admin for Further Details......</a>
+        {% endif %}
+    </table>
+    
+    
+        </div>
+    </table>
+</body>
+</html>
